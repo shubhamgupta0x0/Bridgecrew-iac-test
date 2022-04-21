@@ -89,10 +89,12 @@ resource "aws_security_group" "apsouth1-ec2-securitygroup2" {
   ingress {
     from_port   = 443
     to_port     = 443
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    protocol    = "tcp"            
+    # [Shisho]: remove `0.0.0.0/0` from the following line and add appropriate IP ranges
+    cidr_blocks = [ "0.0.0.0/0" ]
   }
 }
+
 
 #######################################################
 
