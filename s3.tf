@@ -1,6 +1,6 @@
 # ALLUSERS have Full Control
 resource "aws_s3_bucket" "iac-apsouth1-s3-FullControl" {
- bucket = "iac-apsouth1-s3-FullControl"
+  bucket = "iac-apsouth1-s3-FullControl"
  force_destroy=true
  grant {
     type = "Group"
@@ -10,7 +10,11 @@ resource "aws_s3_bucket" "iac-apsouth1-s3-FullControl" {
  tags={
    Name = "iac-apsouth1-s3-permissions-FullControl"
  }
+  versioning {
+    enabled = true
+  }
 }
+
 
 # ALLUSERS have read access
 resource "aws_s3_bucket" "iac-apsouth1-s3-FullRead" {
