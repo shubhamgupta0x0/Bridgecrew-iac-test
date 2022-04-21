@@ -1,6 +1,6 @@
 # ALLUSERS have Full Control
 resource "aws_s3_bucket" "iac-apsouth1-s3-FullControl" {
- bucket = "iac-apsouth1-s3-FullControl"
+  bucket = "iac-apsouth1-s3-FullControl"
  force_destroy=true
  grant {
     type = "Group"
@@ -10,7 +10,17 @@ resource "aws_s3_bucket" "iac-apsouth1-s3-FullControl" {
  tags={
    Name = "iac-apsouth1-s3-permissions-FullControl"
  }
+  logging {
+     target_bucket = aws_s3_bucket.log_bucket.id
+    target_prefix = "log/"
+  }          
 }
+
+resource "aws_s3_bucket" "log_bucket" {
+  bucket = "my-tf-log-bucket"
+  acl    = "log-delivery-write"
+}
+
 
 # ALLUSERS have read access
 resource "aws_s3_bucket" "iac-apsouth1-s3-FullRead" {
