@@ -32,7 +32,7 @@ resource "aws_db_instance" "iac-apsouth1-rds-mariodb" {
   multi_az                        = false
   port                            = 3306
   storage_encrypted               = false
-  publicly_accessible             = true
+  publicly_accessible             = false
   deletion_protection             = false
   tags = {
       Name        = "iac-apsouth1-rds-mariodb"
