@@ -17,7 +17,7 @@ data "aws_security_group" "default" {
 
 #######################################################
 
-# MarioDB RDS
+# MarioDB RDS instance 
 resource "aws_db_instance" "iac-apsouth1-rds-mariodb" {
   allocated_storage               = 10
   engine                          = "mariadb"
